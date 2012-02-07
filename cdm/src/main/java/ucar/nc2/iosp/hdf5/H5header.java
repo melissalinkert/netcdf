@@ -2880,7 +2880,7 @@ public class H5header {
 
       name = readString(raf);
       if (version < 3) {
-        raf.skipBytes(padding(name.length() + 1, 8));
+        raf.skipBytes(padding(name.getBytes().length + 1, 8));
         offset = raf.readInt();
       } else {
         offset = (int) readVariableSizeMax(byteSize);
